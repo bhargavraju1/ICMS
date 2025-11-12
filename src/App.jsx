@@ -22,6 +22,7 @@ import AboutUs from "./home/AboutUs";
 import Careers from "./home/Careers";
 import Industries from "./home/Industries";
 import Solutions from "./home/Solutions";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/industries" element={<Industries />} />
+        <Route path="/navbar" element={<Navbar />} />
 
         {/* Director Routes */}
         <Route
