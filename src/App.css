@@ -1,3 +1,7 @@
+/* global top padding for all pages */
+body {
+  padding-top: 80px; /* header height */
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;

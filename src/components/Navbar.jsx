@@ -12,7 +12,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="KodeBloom Logo"
-              className="w-[90px] h-[90px] object-cover rounded-[50%/60%]"
+              className="w-[90px] h-[85px] object-cover rounded-[50%/60%]"
             />
           </div>
 
