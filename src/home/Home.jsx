@@ -240,16 +240,54 @@ const Home = () => {
     }
   ];
 
+  // Hero Slides Data
+  const heroSlides = [
+    {
+      id: 1,
+      title: "Engineering a Better World",
+      subtitle: "Through safe, smart, and sustainable mobility solutions — shaping a smarter tomorrow.",
+      background: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&h=600&q=80",
+      ctaText: "Explore Our Vision",
+      ctaLink: "/about"
+    },
+    {
+      id: 2,
+      title: "Innovation at Scale",
+      subtitle: "Driving cutting-edge research and development in automotive technology and sustainable mobility.",
+      background: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&h=600&q=80",
+      ctaText: "View Technologies",
+      ctaLink: "/technology"
+    },
+    {
+      id: 3,
+      title: "Sustainable Future",
+      subtitle: "Committed to environmental stewardship and green technology solutions for generations to come.",
+      background: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&h=600&q=80",
+      ctaText: "Learn About Sustainability",
+      ctaLink: "/sustainability"
+    }
+  ];
+
   const [visibleCards, setVisibleCards] = useState([]);
   const [hoveredTechCard, setHoveredTechCard] = useState(null);
   const [hoveredSolutionCard, setHoveredSolutionCard] = useState(null);
   const [hoveredSustainabilityCard, setHoveredSustainabilityCard] = useState(null);
   const [highlightedLogo, setHighlightedLogo] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Function to handle explore more clicks
   const handleExploreMore = (url) => {
     window.location.href = url;
   };
+
+  // Auto-slide hero section
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
 
   // Auto-highlight logos one by one with middle focus
   useEffect(() => {
@@ -275,24 +313,109 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Manual slide navigation
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
       <Navbar />
 
       {/* Main Content Container with Fixed Height */}
       <div className="flex-1 overflow-y-auto">
-        {/* Hero Section */}
-        <div className="text-center mt-16 px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-wide text-blue-700">
-            Engineering a Better World
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Through safe, smart, and sustainable mobility solutions — shaping a smarter tomorrow.
-          </p>
+        {/* Hero Slider Section */}
+        <div className="relative h-96 md:h-[500px] overflow-hidden bg-gray-900">
+          {/* Slides */}
+          {heroSlides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentSlide
+                  ? "opacity-100 translate-x-0"
+                  : index < currentSlide
+                  ? "opacity-0 -translate-x-full"
+                  : "opacity-0 translate-x-full"
+              }`}
+            >
+              {/* Background Image with Overlay */}
+              <div className="absolute inset-0">
+                <img
+                  src={slide.background}
+                  alt={slide.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop";
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/50"></div>
+              </div>
+
+              {/* Content */}
+              <div className="relative h-full flex items-center justify-center text-center text-white px-4">
+                <div className="max-w-4xl mx-auto transform transition-all duration-1000 delay-300">
+                  <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-wide animate-fade-in-up">
+                    {slide.title}
+                  </h1>
+                  <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-300">
+                    {slide.subtitle}
+                  </p>
+                  <button
+                    onClick={() => handleExploreMore(slide.ctaLink)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-fade-in-up delay-500"
+                  >
+                    {slide.ctaText}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Gradient Overlay at Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
         </div>
 
         {/* Scrolling Images Row 1 */}
-        <div className="relative w-full overflow-hidden py-3 bg-white mt-6">
+        <div className="relative w-full overflow-hidden py-3 bg-white">
           <div className="flex animate-scroll-left items-start gap-2">
             {duplicatedRow1.map((image, index) => (
               <div
@@ -341,60 +464,18 @@ const Home = () => {
           <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent pointer-events-none" />
         </div>
 
-        {/* Feature Boxes - REMOVED to eliminate gap */}
-        {/* <div className="max-w-6xl mx-auto px-4 mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-          {featureBoxes.map((box, index) => (
-            <div
-              key={index}
-              className={`feature-card flex items-start rounded-lg shadow-lg transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl ${box.bgColor} ${
-                visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transition: "all 0.5s ease-out" }}
-            >
-              <div className="flex items-center justify-center w-20 p-2">
-                <div className="bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-500 flex items-center justify-center">
-                  <img
-                    src={box.icon}
-                    alt={box.title}
-                    className="h-10 w-10 object-contain"
-                    onError={(e) => {
-                      e.target.src = "https://img.icons8.com/color/96/000000/help.png";
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="p-3 flex flex-col flex-1">
-                <h3 className="text-sm md:text-base font-bold mb-1 text-gray-800">
-                  {box.title}
-                </h3>
-                <p className="text-gray-700 mb-2 flex-1 text-xs">{box.description}</p>
-                <button 
-                  className="mt-auto inline-flex items-center text-blue-700 font-semibold hover:text-blue-900 transition-colors group text-xs"
-                  onClick={() => handleExploreMore("/sustainability")}
-                >
-                  Read More
-                  <span className="ml-1 transform transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div> */}
-
-        {/* About Us Section - Directly after images with minimal gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-8 text-center"> {/* Reduced from mt-14 to mt-8 */}
+        {/* About Us Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-8 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">
             ABOUT US
           </h3>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-4xl mx-auto">
-           Kodebloom Technology is a global software company focused on designing and developing high-quality digital products for enterprises and startups. Our team blends engineering rigor with user-centered design to create web and mobile apps, cloud platforms, and automation solutions that solve real business problems. We prioritize performance, security, and maintainability delivering products that are easy to adopt and built to grow with your organization.
+            Kodebloom Technology is a global software company focused on designing and developing high-quality digital products for enterprises and startups. Our team blends engineering rigor with user-centered design to create web and mobile apps, cloud platforms, and automation solutions that solve real business problems. We prioritize performance, security, and maintainability delivering products that are easy to adopt and built to grow with your organization.
           </p>
         </div>
 
-        {/* Stats Section - Reduced gap */}
-        <div className="max-w-6xl mx-auto px-4 mt-8 grid grid-cols-2 md:grid-cols-5 gap-4 text-center"> {/* Reduced from mt-10 to mt-8 */}
+        {/* Stats Section */}
+        <div className="max-w-6xl mx-auto px-4 mt-8 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
           {statsData.map((stat, index) => (
             <div
               key={index}
@@ -406,8 +487,8 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Technology Section - Reduced gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-12 text-center"> {/* Reduced from mt-14 to mt-12 */}
+        {/* Technology Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">TECHNOLOGY</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -479,8 +560,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Solutions Section - Reduced gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-12 text-center"> {/* Reduced from mt-14 to mt-12 */}
+        {/* Solutions Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">OUR SOLUTIONS</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -579,8 +660,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Technology Showcase Section - Reduced gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-12 text-center"> {/* Reduced from mt-14 to mt-12 */}
+        {/* Technology Showcase Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">TECHNOLOGY SHOWCASE</h3>
           
           <div className="mb-8">
@@ -685,8 +766,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Sustainability Section - Reduced gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-12 text-center"> {/* Reduced from mt-14 to mt-12 */}
+        {/* Sustainability Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">SUSTAINABILITY</h3>
           <p className="text-gray-600 text-sm md:text-base mb-8 max-w-3xl mx-auto">
             Committed to environmental stewardship, social responsibility, and sustainable innovation 
@@ -797,8 +878,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Investors Section - Reduced gap */}
-        <div className="max-w-7xl mx-auto px-6 mt-12 text-center"> {/* Reduced from mt-14 to mt-12 */}
+        {/* Investors Section */}
+        <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">INVESTORS</h3>
           <p className="text-gray-600 text-sm md:text-base mb-8 max-w-3xl mx-auto">
             Trusted by leading global investment firms and financial partners who believe in our vision 
@@ -933,6 +1014,16 @@ const Home = () => {
             transform: translateX(-50%);
           }
         }
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
         .animate-scroll-left {
           display: flex;
           animation: scrollLeft 30s linear infinite;
@@ -949,6 +1040,9 @@ const Home = () => {
         .animate-scroll-right:hover,
         .animate-scroll-medium:hover {
           animation-play-state: paused;
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
         }
       `}</style>
     </div>

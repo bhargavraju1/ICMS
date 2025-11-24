@@ -23,6 +23,9 @@ import Careers from "./home/Careers";
 import Industries from "./home/Industries";
 import Solutions from "./home/Solutions";
 import Navbar from "./components/Navbar";
+import ViewTechnologies from "./home/ViewTechnologies";
+import ExploreOurVision from "./home/ExploreOurVision";
+import LearnAboutSustainability from "./home/LearnAboutSustainability";
 
 function App() {
   return (
@@ -45,6 +48,9 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/navbar" element={<Navbar />} />
+         <Route path="/technology" element={<ViewTechnologies />} />
+         <Route path="/about" element={<ExploreOurVision />} />
+         <Route path="/sustainability" element={<LearnAboutSustainability />} />
 
         {/* Director Routes */}
         <Route
