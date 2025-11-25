@@ -12,7 +12,7 @@ const ViewTechnologies = () => {
       name: "Artificial Intelligence & Machine Learning",
       category: "ai",
       description: "Advanced AI algorithms and machine learning models that transform data into actionable intelligence and automate complex processes.",
-      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Deep Learning Neural Networks",
         "Natural Language Processing",
@@ -43,7 +43,7 @@ const ViewTechnologies = () => {
       name: "Blockchain & Web3 Solutions",
       category: "blockchain",
       description: "Decentralized ledger technology ensuring transparency, security, and trust in digital transactions and asset management.",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Smart Contract Development",
         "Decentralized Applications (dApps)",
@@ -74,7 +74,7 @@ const ViewTechnologies = () => {
       name: "Internet of Things (IoT)",
       category: "iot",
       description: "Connected ecosystem of smart devices and sensors that collect, analyze, and act on real-time data from physical environments.",
-      image: "https://images.unsplash.com/photo-1558618666-fcd2585632d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1558618666-fcd2585632d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Edge Computing Capabilities",
         "Real-time Sensor Networks",
@@ -105,7 +105,7 @@ const ViewTechnologies = () => {
       name: "Cloud Computing & DevOps",
       category: "cloud",
       description: "Scalable cloud infrastructure and automated development pipelines enabling rapid innovation and global scalability.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Multi-cloud Architecture",
         "Container Orchestration",
@@ -136,7 +136,7 @@ const ViewTechnologies = () => {
       name: "Quantum Computing",
       category: "quantum",
       description: "Next-generation computing paradigm leveraging quantum mechanics to solve complex problems beyond classical computing capabilities.",
-      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Quantum Algorithm Development",
         "Qubit Processing Systems",
@@ -167,7 +167,7 @@ const ViewTechnologies = () => {
       name: "Sustainable Energy Technology",
       category: "energy",
       description: "Innovative solutions for renewable energy generation, storage, and smart grid management to power a sustainable future.",
-      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
       features: [
         "Smart Grid Management Systems",
         "Energy Storage Solutions",
@@ -192,6 +192,37 @@ const ViewTechnologies = () => {
       ],
       icon: "🌞",
       status: "Active Deployment"
+    },
+    {
+      id: 7,
+      name: "Advanced Manufacturing",
+      category: "manufacturing",
+      description: "Leveraging robotics and AI for precision, efficiency, and sustainable production in next-generation manufacturing processes.",
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+      features: [
+        "Industrial Robotics & Automation",
+        "Additive Manufacturing (3D Printing)",
+        "Digital Twin Technology",
+        "Smart Factory Systems",
+        "Predictive Quality Control",
+        "Augmented Reality Maintenance"
+      ],
+      applications: [
+        "Smart Factory Implementation",
+        "Customized Mass Production",
+        "Supply Chain Optimization",
+        "Quality Assurance Automation",
+        "Sustainable Production Lines",
+        "Real-time Production Monitoring"
+      ],
+      benefits: [
+        "50% faster production cycles",
+        "99.8% manufacturing accuracy",
+        "30% reduction in material waste",
+        "24/7 automated operations"
+      ],
+      icon: "🏭",
+      status: "Enterprise Deployment"
     }
   ];
 
@@ -227,12 +258,13 @@ const ViewTechnologies = () => {
               { key: 'iot', label: 'IoT' },
               { key: 'cloud', label: 'Cloud & DevOps' },
               { key: 'quantum', label: 'Quantum' },
-              { key: 'energy', label: 'Energy Tech' }
+              { key: 'energy', label: 'Energy Tech' },
+              { key: 'manufacturing', label: 'Advanced Manufacturing' }
             ].map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-6 py-3 rounded-full transition-all duration-300 font-medium ${
+                className={`px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 font-medium text-sm md:text-base ${
                   activeTab === tab.key
                     ? 'bg-blue-600 text-white shadow-lg transform scale-105'
                     : 'bg-white text-gray-700 hover:bg-blue-50 shadow-md hover:shadow-lg border border-blue-200'
@@ -256,6 +288,10 @@ const ViewTechnologies = () => {
                     src={tech.image}
                     alt={tech.name}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      // Fallback image if the original fails to load
+                      e.target.src = `https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80`;
+                    }}
                   />
                   <div className="absolute top-4 right-4 flex gap-2">
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -317,6 +353,9 @@ const ViewTechnologies = () => {
                     src={selectedTech.image}
                     alt={selectedTech.name}
                     className="w-full h-64 object-cover"
+                    onError={(e) => {
+                      e.target.src = `https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80`;
+                    }}
                   />
                   <button 
                     onClick={() => setSelectedTech(null)}
@@ -397,6 +436,31 @@ const ViewTechnologies = () => {
               </div>
             </div>
           )}
+
+          {/* Technology Statistics */}
+          <div className="bg-white rounded-2xl p-8 shadow-xl mb-16 border border-blue-100">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Technology Impact Metrics</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">{technologies.length}</div>
+                <div className="text-gray-600 font-medium">Technologies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-cyan-600 mb-2">
+                  {technologies.filter(tech => tech.status === 'Production Ready').length}
+                </div>
+                <div className="text-gray-600 font-medium">Production Ready</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
+                <div className="text-gray-600 font-medium">Global Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">99.9%</div>
+                <div className="text-gray-600 font-medium">Uptime Average</div>
+              </div>
+            </div>
+          </div>
 
           {/* CTA Section */}
           <div className="text-center bg-white rounded-2xl p-12 shadow-xl border border-blue-100">

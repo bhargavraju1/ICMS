@@ -26,6 +26,9 @@ import Navbar from "./components/Navbar";
 import ViewTechnologies from "./home/ViewTechnologies";
 import ExploreOurVision from "./home/ExploreOurVision";
 import LearnAboutSustainability from "./home/LearnAboutSustainability";
+import AdvancedManufacturing from "./home/AdvancedManufacturing";
+import SmartMobility from "./home/SmartMobility";
+import SustainableEngineering from "./home/SustainbilityEngineering";
 
 function App() {
   return (
@@ -48,9 +51,13 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/navbar" element={<Navbar />} />
-         <Route path="/technology" element={<ViewTechnologies />} />
-         <Route path="/about" element={<ExploreOurVision />} />
-         <Route path="/sustainability" element={<LearnAboutSustainability />} />
+        <Route path="/technology" element={<ViewTechnologies />} />
+        <Route path="/about" element={<ExploreOurVision />} />
+        <Route path="/sustainability" element={<LearnAboutSustainability />} />
+        <Route path="/technology/manufacturing" element={<AdvancedManufacturing/>} />
+        <Route path="/technology/mobility" element={<SmartMobility/>} />
+         <Route path="/technology/sustainability" element={<SustainableEngineering/>} />
+
 
         {/* Director Routes */}
         <Route

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from "../components/Footer";
 
 const LearnAboutSustainability = () => {
   const [activeCategory, setActiveCategory] = useState('environmental');
@@ -147,173 +149,182 @@ const LearnAboutSustainability = () => {
   const currentCategory = sustainabilityData[activeCategory];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-blue-600">Sustainability</span> Journey
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Building a sustainable future through innovative technology solutions, responsible business practices, 
-            and meaningful community engagement. Discover how we're making a positive impact on people and the planet.
-          </p>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      {/* Navbar */}
+      <Navbar />
+      
+      {/* Main Content */}
+      <div className="flex-grow bg-gradient-to-br from-blue-50 to-cyan-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Our <span className="text-blue-600">Sustainability</span> Journey
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Building a sustainable future through innovative technology solutions, responsible business practices, 
+              and meaningful community engagement. Discover how we're making a positive impact on people and the planet.
+            </p>
+          </div>
 
-        {/* Impact Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
-          {impactMetrics.map((metric, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-100">
-              <div className="text-2xl mb-2">{metric.icon}</div>
-              <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{metric.number}</div>
-              <div className="text-sm text-gray-600 font-medium">{metric.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Sustainability Categories */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {Object.entries(sustainabilityData).map(([key, category]) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(key)}
-              className={`flex items-center px-6 py-3 rounded-full transition-all duration-300 font-medium ${
-                activeCategory === key
-                  ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                  : 'bg-white text-gray-700 hover:bg-blue-50 shadow-md border border-blue-200'
-              }`}
-            >
-              <span className="text-xl mr-2">{category.icon}</span>
-              {category.title}
-            </button>
-          ))}
-        </div>
-
-        {/* Current Category Header */}
-        <div className="text-center mb-12">
-          <div className="text-4xl mb-4">{currentCategory.icon}</div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{currentCategory.title}</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">{currentCategory.description}</p>
-        </div>
-
-        {/* Initiatives Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {currentCategory.initiatives.map((initiative, index) => (
-            <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100">
-              <div className="relative">
-                <img
-                  src={initiative.image}
-                  alt={initiative.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Target: {initiative.target}
-                </div>
+          {/* Impact Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+            {impactMetrics.map((metric, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-100">
+                <div className="text-2xl mb-2">{metric.icon}</div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{metric.number}</div>
+                <div className="text-sm text-gray-600 font-medium">{metric.label}</div>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{initiative.name}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{initiative.description}</p>
+            ))}
+          </div>
+
+          {/* Sustainability Categories */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {Object.entries(sustainabilityData).map(([key, category]) => (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`flex items-center px-6 py-3 rounded-full transition-all duration-300 font-medium ${
+                  activeCategory === key
+                    ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                    : 'bg-white text-gray-700 hover:bg-blue-50 shadow-md border border-blue-200'
+                }`}
+              >
+                <span className="text-xl mr-2">{category.icon}</span>
+                {category.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Current Category Header */}
+          <div className="text-center mb-12">
+            <div className="text-4xl mb-4">{currentCategory.icon}</div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{currentCategory.title}</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">{currentCategory.description}</p>
+          </div>
+
+          {/* Initiatives Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {currentCategory.initiatives.map((initiative, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100">
+                <div className="relative">
+                  <img
+                    src={initiative.image}
+                    alt={initiative.name}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Target: {initiative.target}
+                  </div>
+                </div>
                 
-                {/* Progress Bar */}
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>Progress</span>
-                    <span>{initiative.progress}%</span>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{initiative.name}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{initiative.description}</p>
+                  
+                  {/* Progress Bar */}
+                  <div className="mb-6">
+                    <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <span>Progress</span>
+                      <span>{initiative.progress}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-blue-600 h-2 rounded-full transition-all duration-1000"
+                        style={{ width: `${initiative.progress}%` }}
+                      ></div>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-1000"
-                      style={{ width: `${initiative.progress}%` }}
-                    ></div>
-                  </div>
-                </div>
 
-                {/* Achievements */}
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
-                  <ul className="space-y-2">
-                    {initiative.achievements.map((achievement, achievementIndex) => (
-                      <li key={achievementIndex} className="flex items-center text-sm text-gray-600">
-                        <svg className="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Achievements */}
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+                    <ul className="space-y-2">
+                      {initiative.achievements.map((achievement, achievementIndex) => (
+                        <li key={achievementIndex} className="flex items-center text-sm text-gray-600">
+                          <svg className="w-4 h-4 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Sustainability Commitment */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl mb-16 border border-blue-100">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Sustainability Commitment</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Environmental Goals 2025</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  Achieve 100% renewable energy across all operations
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  Reduce water consumption by 50% compared to 2020 baseline
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  Implement circular economy principles across product lines
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  Achieve zero waste to landfill certification
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Social Impact Targets</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                  Train 2 million people in digital skills by 2027
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                  Achieve gender parity in leadership positions
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                  Support 1000+ social enterprises through technology
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
-                  Ensure living wages across entire supply chain
-                </li>
-              </ul>
+          {/* Sustainability Commitment */}
+          <div className="bg-white rounded-2xl p-8 shadow-xl mb-16 border border-blue-100">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Sustainability Commitment</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Environmental Goals 2025</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    Achieve 100% renewable energy across all operations
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    Reduce water consumption by 50% compared to 2020 baseline
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    Implement circular economy principles across product lines
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    Achieve zero waste to landfill certification
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Social Impact Targets</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                    Train 2 million people in digital skills by 2027
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                    Achieve gender parity in leadership positions
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                    Support 1000+ social enterprises through technology
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+                    Ensure living wages across entire supply chain
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">Join Our Sustainability Mission</h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Together, we can create a more sustainable future through technology innovation, 
-            responsible practices, and collective action.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-full font-semibold transition-colors">
-              Download Sustainability Report
-            </button>
-            <button className="border border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition-colors">
-              Partner for Impact
-            </button>
+          {/* Call to Action */}
+          <div className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-12 text-white">
+            <h2 className="text-3xl font-bold mb-4">Join Our Sustainability Mission</h2>
+            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+              Together, we can create a more sustainable future through technology innovation, 
+              responsible practices, and collective action.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-full font-semibold transition-colors">
+                Download Sustainability Report
+              </button>
+              <button className="border border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold transition-colors">
+                Partner for Impact
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

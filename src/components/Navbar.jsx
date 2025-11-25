@@ -22,11 +22,11 @@ const Navbar = () => {
             <div className="relative group">
               <button className="hover:text-blue-600 transition-colors">About Us</button>
               <div className="absolute left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-lg shadow-md w-60 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all z-50">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Overview</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Leadership Team</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Business Location</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Our Vision</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Awards</a>
+                <a href="https://kodebloom.com/?page_id=411" className="block px-4 py-2 hover:bg-gray-100">Overview</a>
+                <a href="https://kodebloom.com/?p=477" className="block px-4 py-2 hover:bg-gray-100">Leadership Team</a>
+                <a href="https://kodebloom.com/#" className="block px-4 py-2 hover:bg-gray-100">Business Location</a>
+                <a href="https://kodebloom.com/#" className="block px-4 py-2 hover:bg-gray-100">Our Vision</a>
+                <a href="https://kodebloom.com/#" className="block px-4 py-2 hover:bg-gray-100">Awards</a>
                 <div className="h-1 w-full bg-sky-400 rounded-b-lg mt-1"></div>
               </div>
             </div>
@@ -37,8 +37,8 @@ const Navbar = () => {
             <div className="relative group">
               <button className="hover:text-blue-600 transition-colors">Media</button>
               <div className="absolute left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-lg shadow-md w-60 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all z-50">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">News</a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+                <a href="https://www.google.com/search?sca_esv=47b6b848a0a925b4&sxsrf=AE3TifPjlwie03Fatk9jG1nS8JqemIHf4w:1763968861450&udm=2&fbs=AIIjpHw8E4NgCV5vjTpYldhMg2BBfIMmA7z9kYRke6sDwVV0fom4jye1L2WGuPUDEpgwrM59CwJKJlJkgNvGxWr2VWFzyoS86tttIcDr_CaMnj1CZqjYqtZDnpbVdUboIr0V625aTeCS5JpRtjB5e-2ri64jAC0gDZw2NNdnbNACnUd1DLhsIbB5vX4HZeEjLODpgroCXl5I6smbxVU8LySEIz8I3Nv8uwLo5CzmeWpf9-EE0HXuhcZr__57O-VIFM1Gd0dnFSQEbo0sE3Bdp31E_AERP8DF2A&q=kodebloom+technology+and+private+limited+gallery&sa=X&ved=2ahUKEwizv4aLoIqRAxUFSWwGHeiCLBsQtKgLegQICxAB&biw=1280&bih=585&dpr=1.5" className="block px-4 py-2 hover:bg-gray-100">News</a>
+                <a href="https://www.google.com/search?sca_esv=47b6b848a0a925b4&sxsrf=AE3TifPjlwie03Fatk9jG1nS8JqemIHf4w:1763968861450&udm=2&fbs=AIIjpHw8E4NgCV5vjTpYldhMg2BBfIMmA7z9kYRke6sDwVV0fom4jye1L2WGuPUDEpgwrM59CwJKJlJkgNvGxWr2VWFzyoS86tttIcDr_CaMnj1CZqjYqtZDnpbVdUboIr0V625aTeCS5JpRtjB5e-2ri64jAC0gDZw2NNdnbNACnUd1DLhsIbB5vX4HZeEjLODpgroCXl5I6smbxVU8LySEIz8I3Nv8uwLo5CzmeWpf9-EE0HXuhcZr__57O-VIFM1Gd0dnFSQEbo0sE3Bdp31E_AERP8DF2A&q=kodebloom+technology+and+private+limited+gallery&sa=X&ved=2ahUKEwizv4aLoIqRAxUFSWwGHeiCLBsQtKgLegQICxAB&biw=1280&bih=585&dpr=1.5" className="block px-4 py-2 hover:bg-gray-100">Gallery</a>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100">Media Kit</a>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100">Media Contest</a>
                 <div className="h-1 w-full bg-sky-400 rounded-b-lg mt-1"></div>
@@ -67,7 +67,7 @@ const Navbar = () => {
             <span className="mx-2 text-gray-400">|</span>
 
             {/* Contact Us */}
-            <a href="#" className="hover:text-blue-600 transition-colors">Contact Us</a>
+            <a href="https://kodebloom.com/?page_id=666" className="hover:text-blue-600 transition-colors">Contact Us</a>
           </div>
         </div>
 
